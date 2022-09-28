@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/src/css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+
+    <script defer src="/src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="search">
+        <form id="form__search">
+          <input
+            type="text"
+            name="query"
+            placeholder="Search Food Recipe"
+            required
+          />
+          <button>Search</button>
+        </form>
+      </div>
+
+      <div class="results">
+        <table class="table">
+          <thead>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Publisher</th>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <button class="btn__add-recipe btn-open-modal">
+      Create Recipe <i class="fa-solid fa-plus"></i>
+    </button>
+
+    <div class="modal hidden">
+      <div class="modal__overlay"></div>
+
+      <div class="modal__content">
+        <div class="modal__header">
+          <h3>Add New Recipe</h3>
+          <span class="btn-close-modal">
+            <i class="fa-solid fa-times"></i>
+          </span>
+        </div>
+
+        <div class="modal__body">
+          <form method="POST" action="https://api.com/recipe/new/">
+            <input type="text" placeholder="Enter Recipe Name" required />
+            <input type="text" placeholder="Enter Publisher Name" required />
+            <input type="file" placeholder="Upload Picture" required />
+
+            <button>Submit Recipe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

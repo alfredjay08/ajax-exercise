@@ -1,0 +1,256 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 750px;
+}
+
+.search,
+.results {
+  margin: 20px 0;
+}
+
+#form__search {
+  display: flex;
+  justify-content: space-between;
+}
+
+#form__search input {
+  width: 80%;
+  padding: 0.5em;
+}
+
+#form__search button {
+  width: 18%;
+  background-color: crimson;
+  color: #fff;
+  border: none;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+}
+
+.table {
+  width: 100%;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.18);
+  border-radius: 3px;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 0.8em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.table th:first-of-type,
+.table td:first-of-type {
+  text-align: left;
+}
+
+.table img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.loader {
+  height: 200px;
+  position: relative;
+}
+
+.loader span {
+  width: 100px;
+  height: 100px;
+  border: 10px dotted skyblue;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  animation: spin 5000ms linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.modal {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.18);
+  position: absolute;
+  backdrop-filter: blur(3px);
+}
+
+.modal__content {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  z-index: 1050;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.18);
+
+  border-radius: 40px 10px;
+}
+
+.modal__header {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal__header h3 {
+  font-size: 1.6rem;
+}
+
+.modal__header span {
+  color: gray;
+  cursor: pointer;
+}
+
+.modal__body {
+  padding: 0 20px;
+  padding-bottom: 25px;
+}
+
+.modal__body form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__body form input {
+  margin-bottom: 15px;
+  padding: 8px;
+}
+
+.modal__body form button {
+  background-image: linear-gradient(to right, crimson, maroon);
+  color: #fff;
+  padding: 9px;
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.hidden {
+  display: none;
+}
+
+.btn__add-recipe {
+  position: fixed;
+  padding: 12px 18px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  right: 40px;
+  bottom: 30px;
+  border: none;
+  cursor: pointer;
+  background: rgb(34, 204, 28);
+  color: #fff;
+
+  animation: glow 1500ms linear infinite;
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}

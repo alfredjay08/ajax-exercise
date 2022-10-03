@@ -57,10 +57,43 @@
         </div>
 
         <div class="modal__body">
-          <form method="POST" action="https://api.com/recipe/new/">
-            <input type="text" placeholder="Enter Recipe Name" required />
-            <input type="text" placeholder="Enter Publisher Name" required />
-            <input type="file" placeholder="Upload Picture" required />
+          <form id="form__upload-recipe">
+            <input
+              type="text"
+              name="title"
+              placeholder="Enter Recipe Name"
+              required
+            />
+            <input
+              type="text"
+              name="publisher"
+              placeholder="Enter Publisher Name"
+              required
+            />
+            <input
+              type="text"
+              name="source_url"
+              placeholder="Enter Source Url"
+              required
+            />
+            <input
+              type="text"
+              name="image_url"
+              placeholder="Enter Image Url"
+              required
+            />
+            <input
+              type="number"
+              name="cooking_time"
+              placeholder="Enter Cooking Time Url Name"
+              required
+            />
+            <input
+              type="number"
+              name="servings"
+              placeholder="Enter Servings"
+              required
+            />
 
             <button>Submit Recipe</button>
           </form>

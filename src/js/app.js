@@ -1,6 +1,8 @@
 "use strict";
 
+const API_KEY = "908e0604-8ed0-4407-9f7e-1cba79d6ac8b";
 const form = document.getElementById("form__search");
+const uploadRecipeForm = document.getElementById("form__upload-recipe");
 const table = document.getElementsByClassName("table")[0];
 const tbody = table.getElementsByTagName("tbody")[0];
 const btnOpenModal = document.getElementsByClassName("btn-open-modal")[0];
@@ -52,6 +54,20 @@ function generateRecipeMarkup(recipe) {
     `;
 }
 
+function uploadRecipe(data) {
+  fetch(`https://forkify-api.herokuapp.com/api/v2/recipes?key=${API_KEY}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      console.log(json);
+    });
+}
+
 function generateSpinnerMarkup() {
   return `
     <tr>
@@ -85,6 +101,14 @@ form.addEventListener("submit", (e) => {
   const { query } = Object.fromEntries([...new FormData(e.currentTarget)]);
 
   displayRecipes(query);
+});
+
+uploadRecipeForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const data = Object.fromEntries([...new FormData(e.currentTarget)]);
+
+  uploadRecipe(data);
 });
 
 [btnOpenModal, btnCloseModal].forEach((btnElement) => {

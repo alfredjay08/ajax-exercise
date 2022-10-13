@@ -16,7 +16,7 @@ async function getRecipes(food) {
     );
     const json = await res.json();
 
-    return json.recipes;
+    return json.recipes.slice(10);
   } catch (err) {
     throw err;
   }
@@ -40,7 +40,7 @@ function generateRecipeMarkup(recipe) {
   return `
     <tr>
         <td>
-        <img src="${recipe.image_url}" />
+        <img src="${recipe.image_url}" alt="Recipe Image" />
         </td>
 
         <td>
@@ -94,7 +94,6 @@ function toggleModal() {
   return null;
 }
 
-window.addEventListener("DOMContentLoaded", () => displayRecipes());
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -114,3 +113,5 @@ uploadRecipeForm.addEventListener("submit", (e) => {
 [btnOpenModal, btnCloseModal].forEach((btnElement) => {
   btnElement.addEventListener("click", toggleModal);
 });
+
+window.addEventListener("DOMContentLoaded", () => displayRecipes());
